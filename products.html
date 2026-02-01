@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - AR-SHAKIR</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar container">
+        <a href="index.html" class="logo">AR-SHAKIR</a>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="products.html" class="nav-item active">Products</a></li>
+            <li><a href="about.html" class="nav-item">About Us</a></li>
+            <li><a href="blog.html" class="nav-item">Blog</a></li>
+            <li><a href="contact.html" class="nav-item">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn-signin">Kontak Kami</a>
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count"></span></a>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <h1 style="text-align: center; margin-bottom: 50px;">Our Collection</h1>
+
+        <div class="products-category">
+            <h2 class="section-title">Mini Leather Bags</h2>
+            <div class="product-grid">
+                <!-- Populated by JS -->
+                <div class="product-card" data-id="1">
+                    <img src="images/yellow_product_bag.png" alt="Yellow Mini">
+                    <div class="product-info">
+                        <h3>Yellow Chic Mini</h3>
+                        <p class="product-type">Leather (Jenis)</p>
+                        <p class="product-price">IDR 1.500.000</p>
+                        <button class="add-to-cart-btn"
+                            onclick="addToCart(1, 'Yellow Chic Mini', 1500000, 'images/yellow_product_bag.png', 'Leather')">Add
+                            to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="2">
+                    <img src="images/hero_bag.png" alt="Vertical Mini">
+                    <div class="product-info">
+                        <h3>Vertical Crossbody</h3>
+                        <p class="product-type">Suede (Jenis)</p>
+                        <p class="product-price">IDR 1.200.000</p>
+                        <button class="add-to-cart-btn"
+                            onclick="addToCart(2, 'Vertical Crossbody', 1200000, 'images/hero_bag.png', 'Suede')">Add to
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="3">
+                    <img src="images/lifestyle_bag.png" alt="Pastel Mini">
+                    <div class="product-info">
+                        <h3>Pastel Block Mini</h3>
+                        <p class="product-type">Faux Leather (Jenis)</p>
+                        <p class="product-price">IDR 900.000</p>
+                        <button class="add-to-cart-btn"
+                            onclick="addToCart(3, 'Pastel Block Mini', 900000, 'images/lifestyle_bag.png', 'Faux Leather')">Add
+                            to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="products-category" style="margin-top: 60px;">
+            <h2 class="section-title">Satchels & Work Bags</h2>
+            <div class="product-grid">
+                <div class="product-card" data-id="4">
+                    <img src="images/satchel_bag.png" alt="Classic Satchel">
+                    <div class="product-info">
+                        <h3>Classic Brown Satchel</h3>
+                        <p class="product-type">Vintage Leather (Jenis)</p>
+                        <p class="product-price">IDR 2.500.000</p>
+                        <button class="add-to-cart-btn"
+                            onclick="addToCart(4, 'Classic Brown Satchel', 2500000, 'images/satchel_bag.png', 'Vintage Leather')">Add
+                            to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="5">
+                    <img src="images/lifestyle_bag.png" alt="Modern Tote">
+                    <div class="product-info">
+                        <h3>Modern Office Tote</h3>
+                        <p class="product-type">Canvas & Leather (Jenis)</p>
+                        <p class="product-price">IDR 1.800.000</p>
+                        <button class="add-to-cart-btn"
+                            onclick="addToCart(5, 'Modern Office Tote', 1800000, 'images/lifestyle_bag.png', 'Canvas')">Add
+                            to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>AR-SHAKIR</h2>
+                    <p>Building premium leather goods for the modern world.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="contact.html" class="btn btn-primary"
+                    style="background: var(--primary); color: var(--dark); border: none;">Kontak Kami</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 AR-SHAKIR. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-container">
+        <div class="float-btn float-top" id="scrollTopBtn">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <a href="https://wa.me/62895639068080" class="float-btn float-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - AR-SHAKIR</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar container">
+        <a href="index.html" class="logo">AR-SHAKIR</a>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="index.html#products" class="nav-item">Products</a></li>
+            <li><a href="about.html" class="nav-item active">About Us</a></li>
+            <li><a href="blog.html" class="nav-item">Blog</a></li>
+            <li><a href="contact.html" class="nav-item">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn-signin">Kontak Kami</a>
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count"></span></a>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <div class="grid-2">
+            <div>
+                <h1 style="margin-bottom: 20px;">About AR-SHAKIR</h1>
+                <p style="margin-bottom: 20px; color: #666;">
+                    Founded in 2010, AR-SHAKIR has been at the forefront of leather fashion, combining traditional
+                    craftsmanship with modern design. Our mission is to provide high-quality, durable, and stylish
+                    leather goods that suit the dynamic lifestyle of our customers.
+                </p>
+                <p style="margin-bottom: 20px; color: #666;">
+                    We believe in sustainability and ethical manufacturing. Every bag is crafted with care in our own
+                    facilities, ensuring that we deliver only the best to our customers.
+                </p>
+
+                <div class="stats-bar"
+                    style="grid-template-columns: repeat(3, 1fr); margin-top: 30px; margin-bottom: 0;">
+                    <div class="stat-box black" style="border-radius: 8px;">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Years Exp.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="img-wrapper">
+                <img src="images/lifestyle_bag.png" alt="About Us">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>AR-SHAKIR</h2>
+                    <p>Building premium leather goods for the modern world.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Best Sellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="contact.html" class="btn btn-primary"
+                    style="background: var(--primary); color: var(--dark); border: none;">Contact Us</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 AR-SHAKIR. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-container">
+        <div class="float-btn float-top" id="scrollTopBtn">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <a href="https://wa.me/62895639068080" class="float-btn float-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

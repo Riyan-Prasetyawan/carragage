@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - AR-SHAKIR</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar container">
+        <a href="index.html" class="logo">AR-SHAKIR</a>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-item">Home</a></li>
+            <li><a href="products.html" class="nav-item">Products</a></li>
+            <li><a href="about.html" class="nav-item">About Us</a></li>
+            <li><a href="blog.html" class="nav-item">Blog</a></li>
+            <li><a href="contact.html" class="nav-item">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <a href="contact.html" class="btn-signin">Kontak Kami</a>
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count"></span></a>
+        </div>
+    </nav>
+
+    <div class="container section">
+        <h1 style="margin-bottom: 30px;">Shopping Cart</h1>
+
+        <div id="cart-items-container">
+            <!-- Cart items will be rendered here -->
+            <p>Your cart is empty.</p>
+        </div>
+
+        <div class="cart-summary" id="cart-summary" style="margin-top: 40px; display: none;">
+            <div style="display: flex; justify-content: flex-end; align-items: center; gap: 20px;">
+                <h3>Total: <span id="cart-total">IDR 0</span></h3>
+                <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+            </div>
+            <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
+                <button onclick="clearCart()"
+                    style="background: none; border: 1px solid #ddd; padding: 5px 10px; cursor: pointer;">Clear
+                    Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>AR-SHAKIR</h2>
+                    <p>Building premium leather goods for the modern world.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="products.html">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <a href="contact.html" class="btn btn-primary"
+                    style="background: var(--primary); color: var(--dark); border: none;">Kontak Kami</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 AR-SHAKIR. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-container">
+        <div class="float-btn float-top" id="scrollTopBtn">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <a href="https://wa.me/62895639068080" class="float-btn float-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Render Cart on Load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCartPage();
+        });
+
+        function renderCartPage() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cart-items-container');
+            const summary = document.getElementById('cart-summary');
+            const totalEl = document.getElementById('cart-total');
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p>Your cart is empty.</p>';
+                summary.style.display = 'none';
+                return;
+            }
+
+            let html = '<div class="cart-list" style="display: grid; gap: 20px;">';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                html += `
+                    <div class="cart-item" style="display: flex; gap: 20px; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 20px;">
+                        <img src="${item.image}" alt="${item.name}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <h4>${item.name}</h4>
+                            <p style="color: #666; font-size: 14px;">${item.type}</p>
+                            <p style="font-weight: 600;">IDR ${item.price.toLocaleString()}</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <span>Qty: ${item.quantity}</span>
+                            <button onclick="removeFromCart(${index})" style="color: red; background: none; border: none; cursor: pointer;"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            container.innerHTML = html;
+            totalEl.textContent = 'IDR ' + total.toLocaleString();
+            summary.style.display = 'block';
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCartPage();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('cart');
+            updateCartCount();
+            renderCartPage();
+        }
+        // ... existing render functions ...
+
+        function checkout() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            if (confirm('Proceed to checkout with total amount: ' + document.getElementById('cart-total').textContent + '?')) {
+                // Simulate processing
+                alert('Thank you for your purchase! Your order has been placed successfully.');
+                clearCart();
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Expose checkout to global scope if needed, or just use it in onclick
+        window.checkout = checkout;
+    </script>
+</body>
+
+</html>
